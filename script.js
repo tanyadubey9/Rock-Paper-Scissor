@@ -22,14 +22,14 @@ const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
         userScore++;
         user.innerText = userScore;
-        msg.innerText = `🎉 You Win! ${userChoice} beats ${compChoice}`;
+        msg.innerText = `🎉 You Win! ${compChoice} beats your ${userChoice}`;
         msgBox.style.backgroundColor = '#08b408';
         msgBox.style.color = 'white';
         winSound.play();
     } else {
         compScore++;
         comp.innerText = compScore;
-        msg.innerText = `😢 You Lose! ${compChoice} beats your ${userChoice}`;
+        msg.innerText = `😢 You Lose! ${userChoice} beats ${compChoice}`;
         msgBox.style.backgroundColor = '#c92424d8';
         msgBox.style.color = 'white';
         loseSound.play();

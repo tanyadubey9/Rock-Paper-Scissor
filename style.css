@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+}
+
+body {
+    background: linear-gradient(45deg, #f4c758, #ff9a9e);
+    animation: bg 5s infinite alternate;
+}
+
+@keyframes bg {
+    from {
+        background-position: left;
+    }
+
+    to {
+        background-position: right;
+    }
+}
+
+nav {
+    width: 100%;
+    background-color: #840101;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+nav h1 {
+    color: papayawhip;
+    font-size: 2.7em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.selection {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.select {
+    padding: 1.5rem;
+    text-align: center;
+    width: 27%;
+}
+
+.select:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.select:active {
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+.select img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 5rem;
+}
+
+.score-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+    font-size: 4rem;
+}
+
+.score {
+    text-align: center;
+}
+
+.msg-container {
+    width: 27%;
+    background-color: #f4c758;
+    padding: 1.4rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    color: #930000;
+}
+
+.comp-choice-box {
+    text-align: center;
+    background-color: #fad1ff;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.comp-choice-box img {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 0.5rem;
+}
+
+#reset-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #840101;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 4rem;
+}
+
+#reset-btn:hover {
+    background-color: #a80000;
+}
+
+@media (width <=880px) {
+    nav h1 {
+        padding: 1rem;
+        font-size: 2em;
+    }
+
+    .select img {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 2rem;
+    }
+
+    .selection {
+        gap: 1rem;
+    }
+
+    .select {
+        padding: 1rem;
+        text-align: center;
+        width: 25%;
+    }
+
+    .comp-choice-box {
+        text-align: center;
+        background-color: #fad1ff;
+        padding: 0.6rem;
+        border-radius: 1rem;
+    }
+
+    .comp-choice-box img {
+        width: 7rem;
+        height: 7rem;
+        margin-top: 0.5rem;
+        border-radius: 1rem;
+    }
+
+    .score-box {
+        gap: 3rem;
+        font-size: 3rem;
+    }
+
+    .msg-container {
+        width: 60%;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-radius: 1.2rem;
+    }
+}
+
+@media (width <=550px) {
+
+    nav h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        gap: 3rem;
+    }
+
+    .select img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 1rem;
+    }
+
+    .selection {
+        gap: 0.5rem;
+    }
+
+    .select {
+        padding: 0.5rem;
+        text-align: center;
+        width: 25%;
+    }
+
+    .comp-choice-box {
+        padding: 0.3rem;
+        border-radius: 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .comp-choice-box img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .score-box {
+        gap: 2rem;
+        font-size: 2rem;
+    }
+
+    .msg-container {
+        width: 60%;
+        padding: 0.7rem;
+        font-size: 1.2rem;
+        border-radius: 1.2rem;
+    }
+
+    #reset-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0.8rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (width <=300px) {
+
+    body{
+        height: 1px;
+    }
+
+    nav h1 {
+        font-size: 1rem;
+    }
+
+    main {
+        gap: 1.5rem;
+    }
+
+    .select img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.6rem;
+    }
+
+    .selection {
+        gap: 0.3rem;
+    }
+
+    .select {
+        padding: 0.3rem;
+        text-align: center;
+        width: 20%;
+    }
+
+    .comp-choice-box {
+        padding: 0.2rem;
+        border-radius: 0.4rem;
+        font-size: 0.5rem;
+    }
+
+    .comp-choice-box img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .score-box {
+        gap: 1rem;
+        font-size: 1rem;
+    }
+
+    .msg-container {
+        width: 40%;
+        padding: 0.4rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+    }
+
+    #reset-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.6rem;
+        border-radius: 0.4rem;
+        margin-bottom: 1.7rem;
+    }
+
+}

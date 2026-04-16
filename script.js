@@ -10,69 +10,80 @@ const winSound = new Audio('./sounds/win.mp3');
 const loseSound = new Audio('./sounds/lose.mp3');
 const clickSound = new Audio('./sounds/click.mp3');
 
-let userScore = 0; 
+let userScore = 0;
 let compScore = 0;
 
+// Use same names everywhere
 const genCompChoice = () => {
-    const choice = ['rock', 'paper', 'scissors'];
+    const choice = ['rock', 'paper', 'scissor'];
     return choice[Math.floor(Math.random() * 3)];
-}
+};
 
 const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
         userScore++;
         user.innerText = userScore;
-        msg.innerText = `🎉 You Win! ${compChoice} beats your ${userChoice}`;
+        msg.innerText = `🎉 You Win! ${userChoice} beats ${compChoice}`;
         msgBox.style.backgroundColor = '#08b408';
         msgBox.style.color = 'white';
         winSound.play();
     } else {
         compScore++;
         comp.innerText = compScore;
-        msg.innerText = `😢 You Lose! ${userChoice} beats ${compChoice}`;
+        msg.innerText = `😢 You Lose! ${compChoice} beats ${userChoice}`;
         msgBox.style.backgroundColor = '#c92424d8';
         msgBox.style.color = 'white';
         loseSound.play();
     }
 
-    // Match end condition
     if (userScore === 5 || compScore === 5) {
-        msg.innerText = userScore === 5 
-            ? "🏆 You Won the Match!" 
-            : "💻 Computer Won the Match!";
+        msg.innerText =
+            userScore === 5
+                ? "🏆 You Won the Match!"
+                : "💻 Computer Won the Match!";
     }
-}
+};
 
 const drawGame = () => {
     msg.innerText = "😐 Draw Game";
     msgBox.style.backgroundColor = '#f7a317ab';
     msgBox.style.color = '#7f0101';
-}
+};
 
 const playGame = (userChoice) => {
+    // Stop if match finished
+    if (userScore === 5 || compScore === 5) return;
+
     msg.innerText = "Computer is thinking...";
 
     setTimeout(() => {
         const compChoice = genCompChoice();
-        compImg.src = `./Images/${compChoice}.png`;
+
+        // If image file is scissors.png, use this:
+        if (compChoice === "scissor") {
+            compImg.src = "./Images/scissor.png"; 
+        } else {
+            compImg.src = `./Images/${compChoice}.png`;
+        }
 
         if (userChoice === compChoice) {
             drawGame();
-        } else {
-            let userWin = true;
-
-            if (userChoice === 'rock') {
-                userWin = compChoice === 'paper' ? false : true;
-            } else if (userChoice === 'paper') {
-                userWin = compChoice === 'scissor' ? false : true;
-            } else {
-                userWin = compChoice === 'rock' ? false : true;
-            }
-
-            showWinner(userWin, userChoice, compChoice);
+            return;
         }
+
+        let userWin = false;
+
+        if (
+            (userChoice === 'rock' && compChoice === 'scissor') ||
+            (userChoice === 'paper' && compChoice === 'rock') ||
+            (userChoice === 'scissor' && compChoice === 'paper')
+        ) {
+            userWin = true;
+        }
+
+        showWinner(userWin, userChoice, compChoice);
     }, 500);
-}
+};
 
 // Click events
 select.forEach((el) => {
@@ -100,4 +111,6 @@ resetBtn.addEventListener('click', () => {
     msgBox.style.color = '#930000';
 
     compImg.src = "./Images/rock.png";
-});
+
+    select.forEach(s => s.style.border = "none");
+});     

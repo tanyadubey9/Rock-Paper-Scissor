@@ -174,7 +174,8 @@ main {
     }
 
     main {
-        gap: 3rem;
+        gap: 5rem;
+        margin-top: 5rem;
     }
 
     .select img {
@@ -220,7 +221,7 @@ main {
         padding: 0.6rem 1.5rem;
         font-size: 1rem;
         border-radius: 0.8rem;
-        margin-bottom: 3rem;
+        margin-bottom: 6rem;
     }
 }
 

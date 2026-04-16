@@ -6,9 +6,9 @@ let select = document.querySelectorAll('.select');
 let resetBtn = document.querySelector('#reset-btn');
 let compImg = document.querySelector('#comp-img');
 
-const winSound = new Audio('./sounds/win.mp3');
-const loseSound = new Audio('./sounds/lose.mp3');
-const clickSound = new Audio('./sounds/click.mp3');
+const winSound = new Audio('./Audio/win.mp3');
+const loseSound = new Audio('./Audio/lose.mp3');
+const clickSound = new Audio('./Audio/click.mp3');
 
 let userScore = 0;
 let compScore = 0;
@@ -36,9 +36,9 @@ const showWinner = (userWin, userChoice, compChoice) => {
         loseSound.play();
     }
 
-    if (userScore === 5 || compScore === 5) {
+    if (userScore === 10 || compScore === 10) {
         msg.innerText =
-            userScore === 5
+            userScore === 10
                 ? "🏆 You Won the Match!"
                 : "💻 Computer Won the Match!";
     }
@@ -52,7 +52,7 @@ const drawGame = () => {
 
 const playGame = (userChoice) => {
     // Stop if match finished
-    if (userScore === 5 || compScore === 5) return;
+    if (userScore === 10 || compScore === 10) return;
 
     msg.innerText = "Computer is thinking...";
 
